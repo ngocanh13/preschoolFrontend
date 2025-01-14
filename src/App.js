@@ -16,6 +16,9 @@ import './assets/css/style.css';
 import Layout from './layouts';
 import Menu from './page/menu';
 import QRScanner from './page/QRScanner';
+import Schedule from './page/Schedule';
+import NotificationForm from './page/NotificationForm';
+
 
 
 
@@ -37,6 +40,11 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/menu' element={<Menu />} />
           <Route path='/qrscanner' element={<QRScanner />} />
+          <Route path='/schedule' element={<Schedule />} />
+          <Route path='/notificationform' element={<NotificationForm />} />
+
+       
+       
         </Routes>
       </Layout>
 
