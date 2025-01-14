@@ -1,0 +1,204 @@
+/* General Container Styles */
+.notification-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fdf2f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header Styles */
+  .header {
+    text-align: center;
+    color: #e91e63;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+  
+  /* Form Section Styles */
+  .form-section {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .textarea-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    min-height: 100px;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-label {
+    margin-left: 5px;
+    font-size: 1em;
+    color: #555;
+  }
+  
+  /* Button Styles */
+  .action-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .update-button {
+    background-color: #ff9800;
+    color: white;
+  }
+  
+  .action-button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Notification List Styles */
+  .section-title {
+    color: #673ab7;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  .notification-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .notification-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .notification-title {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .notification-details {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .notification-recipients {
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-btn {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn:hover,
+  .delete-btn:hover {
+    opacity: 0.9;
+  }
+  
+  /* No Notifications Message */
+  .no-notifications {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin-top: 20px;
+  }
+  
+  /* Enhanced Styling */
+  /* Enhancements for responsiveness and visual effects */
+  .notification-form-container {
+    background: linear-gradient(135deg, #f5f7fa, #fdf2f8);
+  }
+  
+  .input-field,
+  .textarea-field {
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-field:focus,
+  .textarea-field:focus {
+    border-color: #e91e63;
+    outline: none;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+  }
+  
+  .action-button {
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .action-button:active {
+    transform: scale(0.98);
+  }
+  
+  .notification-item {
+    transition: transform 0.2s ease, box-shadow 0.3s;
+  }
+  
+  .notification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
