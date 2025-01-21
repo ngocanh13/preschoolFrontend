@@ -2,37 +2,11 @@ import img from '../assets/img/program-1.jpg'
 import img2 from '../assets/img/program-2.jpg'
 import img3 from '../assets/img/program-3.jpg'
 import img1 from '../assets/img/program-teacher.jpg'
-
+import { Link } from 'react-router-dom';
 
 export default function Programs() {
     return(
         <>
-  <div
-    className="container-fluid page-header py-5 wow fadeIn"
-    data-wow-delay="0.1s"
-    style={{
-      visibility: "visible",
-      animationDelay: "0.1s",
-      animationName: "fadeIn"
-    }}
-  >
-    <div className="container text-center py-5">
-      <h1 className="display-2 text-white mb-4">Programs</h1>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb justify-content-center mb-0">
-          <li className="breadcrumb-item">
-            <a href="#">Home</a>
-          </li>
-          <li className="breadcrumb-item">
-            <a href="#">Pages</a>
-          </li>
-          <li className="breadcrumb-item text-white" aria-current="page">
-            Programs
-          </li>
-        </ol>
-      </nav>
-    </div>
-  </div>
 
  
   <div className="container-fluid program  py-5">
@@ -54,6 +28,17 @@ export default function Programs() {
           We Offer An Exclusive Program For Kids
         </h1>
       </div>
+      <div className="d-flex justify-content-end mb-5">
+                          <Link
+                              to="/addprogram"
+                              className="btn btn-primary"
+                              style={{
+                                  textDecoration: "none"
+                              }}
+                              >
+                              <i className="fas fa-plus me-2"></i>Thêm khóa học 
+                          </Link>
+                      </div>
       <div className="row g-5 justify-content-center">
         <div
           className="col-md-6 col-lg-6 col-xl-4 wow fadeIn"
@@ -64,6 +49,7 @@ export default function Programs() {
             animationName: "fadeIn"
           }}
         >
+          
           <div className="program-item rounded">
             <div className="program-img position-relative">
               <div className="overflow-hidden img-border-radius">
