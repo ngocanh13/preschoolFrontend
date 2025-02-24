@@ -21,7 +21,7 @@ export default function Programs() {
           animationName: "fadeIn"
         }}
       >
-        <h4 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">
+        <h4 className="text-primary mb-4 d-inline-block p-2 title-border-radius">
           Our Programs
         </h4>
         <h1 className="mb-5 display-3">

@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom';
 
 
 const RightElement = styled.div`
-background: #fccb90;
+background: #0dcaf047;
 /* fallback for old browsers */
 
 
 /* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+background: -webkit-linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e3d95);
 
 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+ background: linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e3d95);
+}
 
 @media (min-width: 768px) {
 .gradient-form {
@@ -35,10 +36,10 @@ export default function Login() {
   const [error, setError] = useState('');
 
   const handleLogin = () => {
-    // Thông tin đăng nhập mẫu
+  
     const adminAccount = {
       email: "admin@babycare.com",
-      password: "admin123",
+      password: "123456",
       role: "admin"
     };
 
@@ -48,9 +49,8 @@ export default function Login() {
       role: "teacher"
     };
 
-    // Kiểm tra thông tin đăng nhập
+    
     if (email === adminAccount.email && password === adminAccount.password) {
-      // Lưu thông tin người dùng vào localStorage
       localStorage.setItem('userRole', adminAccount.role);
       navigate('/');
     } else if (email === teacherAccount.email && password === teacherAccount.password) {
@@ -71,9 +71,10 @@ export default function Login() {
                 <div className="col-lg-6">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center mb-5">
-                      <h1 className="text-primary display-5 fw-bold">
-                        Baby<span className="text-secondary">Care</span>
-                      </h1>
+                      <h1 className="text-primary display-6 mb-0">
+                          <span style={{ color: '#ff4880' }}>Baby</span> 
+                          <span className="text-secondary">Care</span>
+                            </h1>
                       <p className="text-muted">Welcome back! Please login to continue</p>
                     </div>
 
@@ -130,13 +131,7 @@ export default function Login() {
                       <div className="text-center mb-4">
                         <button
                           type="submit"
-                          className="btn btn-primary px-5 py-3 btn-border-radius"
-                          style={{
-                            backgroundColor: "#FF4880",
-                            color: "white"
-                          }}
-                          onMouseEnter={(e) => e.target.style.backgroundColor = "var(--bs-secondary)"}
-                          onMouseLeave={(e) => e.target.style.backgroundColor = "#FF4880"}
+                          className="btn btn-primary px-5 py-3 btn-border-radius btn btn-primary"
                         >
                           Log in
                         </button>

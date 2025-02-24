@@ -6,7 +6,7 @@ const AddFund = () => {
         <div className="container-xxl py-4">
             <div className="container">
                 <div className="text-center mx-auto mb-4" style={{ maxWidth: "500px" }}>
-                    <h1 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">Thêm học phí</h1>
+                    <h1 className="text-primary mb-4 d-inline-block p-2 title-border-radius">Thêm học phí</h1>
                     <p className="text-muted">Nhập thông tin học phí cho sinh viên</p>
                 </div>
 

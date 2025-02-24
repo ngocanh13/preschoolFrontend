@@ -10,13 +10,13 @@ const AddProgram = () => {
           data-wow-delay="0.1s"
           style={{ maxWidth: "600px" }}
         >
-          <h1 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">Thêm Khóa Học</h1>
+          <h1 className="text-primary mb-4 d-inline-block p-2 title-border-radius">Thêm Khóa Học</h1>
           <p>Thêm khóa học mới cho trường mầm non</p>
         </div>
 
         <div className="d-flex justify-content-start mb-3">
           <Link
-            to="/programs"
+            to="/"
             className="btn"
             style={{ backgroundColor: "#FF4880", color: "white" }}
             onMouseEnter={(e) =>

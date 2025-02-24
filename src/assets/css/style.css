@@ -115,8 +115,8 @@ h6,
 }
 
 .btn.btn-primary:hover {
-    background: var(--bs-secondary);
-    color: var(--bs-primary);
+    background:#dee2e6;
+    color: #007bff;
 }
 
 .btn-border-radius {
@@ -438,9 +438,9 @@ h6,
 
 
 /*** Programs Start ***/
-.program {
+/* .program {
     background: linear-gradient(rgba(255, 72, 128, 0.1), rgba(255, 72, 128, 0.1));
-}
+} */
 
 .program .program-item .program-img .program-rate {
     position: absolute;

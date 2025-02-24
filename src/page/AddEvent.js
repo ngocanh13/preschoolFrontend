@@ -6,7 +6,7 @@ const AddEvent = () => {
         <div className="container-xxl py-5">
             <div className="container">
                 <div className="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: "600px" }}>
-                    <h1 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">Thêm Sự Kiện</h1>
+                    <h1 className="text-primary mb-4 d-inline-block p-2 title-border-radius">Thêm Sự Kiện</h1>
                     <p>Thêm sự kiện mới cho trường mầm non</p>
                 </div>
 

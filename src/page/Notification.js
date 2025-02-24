@@ -5,7 +5,7 @@ const Notification = () => {
     
     return (
         <div className="container mt-4">
-            <h2 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">
+            <h2 className="text-primary mb-4 d-inline-block p-2 title-border-radius">
                 Thông báo
             </h2>
             
@@ -26,7 +26,7 @@ const Notification = () => {
             <div className="table-responsive shadow rounded">
                 <table className="table table-hover border-0 mb-0">
                     <thead>
-                        <tr style={{backgroundColor: "#FFE4E1"}}>
+                        <tr style={{backgroundColor: "#007bff", color: "#ffffee"}}>
                             <th className="py-3 px-4 border-0 rounded-start">Ngày</th>
                             <th className="py-3 px-4 border-0">Tiêu đề</th>
                             <th className="py-3 px-4 border-0">Nội dung</th>
@@ -41,10 +41,10 @@ const Notification = () => {
                             </td>
                             <td className="py-3 px-4">Trường sẽ nghỉ lễ vào ngày 20/11/2023</td>
                             <td className="py-3 px-4">
-                                <button className="btn btn-outline-primary btn-sm me-2">
+                                <button className="btn btn-outline-info btn-sm me-2">
                                     <i className="fas fa-edit me-1"></i>Sửa
                                 </button>
-                                <button className="btn btn-outline-danger btn-sm">
+                                <button className="btn btn-outline-warning btn-sm">
                                     <i className="fas fa-trash me-1"></i>Xóa
                                 </button>
                             </td>
@@ -56,10 +56,10 @@ const Notification = () => {
                             </td>
                             <td className="py-3 px-4">Cuộc họp phụ huynh sẽ diễn ra vào ngày 15/11/2023</td>
                             <td className="py-3 px-4">
-                                <button className="btn btn-outline-primary btn-sm me-2">
+                                <button className="btn btn-outline-info btn-sm me-2">
                                     <i className="fas fa-edit me-1"></i>Sửa
                                 </button>
-                                <button className="btn btn-outline-danger btn-sm">
+                                <button className="btn btn-outline-warning btn-sm">
                                     <i className="fas fa-trash me-1"></i>Xóa
                                 </button>
                             </td>

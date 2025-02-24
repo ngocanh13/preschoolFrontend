@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ClassFund = () => {
     return (
         <div className="container mt-4">
-            <h2 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">
+            <h2 className="text-primary mb-4 d-inline-block p-2 title-border-radius">
                 Danh sách học phí
             </h2>
             
@@ -25,7 +25,7 @@ const ClassFund = () => {
             <div className="table-responsive shadow rounded">
                 <table className="table table-hover border-0 mb-0">
                     <thead>
-                        <tr style={{backgroundColor: "#FFE4E1"}}>
+                        <tr style={{backgroundColor: "#007bff", color: "#ffffee"}}>
                             <th className="py-3 px-4 border-0">Tên sinh viên</th>
                             <th className="py-3 px-4 border-0">Số tiền học phí</th>
                             <th className="py-3 px-4 border-0">Hạn thanh toán</th>
@@ -46,10 +46,10 @@ const ClassFund = () => {
                             <td className="py-3 px-4">20/11/2023</td>
                             <td className="py-3 px-4">Chuyển khoản</td>
                             <td className="py-3 px-4">
-                                <button className="btn btn-outline-primary btn-sm me-2">
+                                <button className="btn btn-outline-info btn-sm me-2">
                                     <i className="fas fa-edit me-1"></i>Sửa
                                 </button>
-                                <button className="btn btn-outline-danger btn-sm">
+                                <button className="btn btn-outline-warning btn-sm">
                                     <i className="fas fa-trash me-1"></i>Xóa
                                 </button>
                             </td>
@@ -64,10 +64,10 @@ const ClassFund = () => {
                             <td className="py-3 px-4">-</td>
                             <td className="py-3 px-4">-</td>
                             <td className="py-3 px-4">
-                                <button className="btn btn-outline-primary btn-sm me-2">
+                                <button className="btn btn-outline-info btn-sm me-2">
                                     <i className="fas fa-edit me-1"></i>Sửa
                                 </button>
-                                <button className="btn btn-outline-danger btn-sm">
+                                <button className="btn btn-outline-warning btn-sm">
                                     <i className="fas fa-trash me-1"></i>Xóa
                                 </button>
                             </td>

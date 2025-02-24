@@ -11,12 +11,12 @@ import ClassFund from '../page/ClassFund';
 import AddFund from '../page/AddFund';
 import Register from '../page/Register';
 import AddEvent from '../page/AddEvent';
-import Parents from '../page/Parents';
-import Teachers from '../page/teacher';
 import AddProgram from '../page/AddProgram';
 import Classes from '../page/Classes';
 import PrivateRoutes from './PrivateRoutes';
 import Unauthorized from '../page/Unauthorized';
+import AddStudent from '../page/AddStudent'
+import Learn from '../page/Learn'
 
 const AppRouters = () => {
   return (
@@ -44,10 +44,10 @@ const AppRouters = () => {
         <Route path="/classfund" element={<ClassFund />} />
         <Route path="/addfund" element={<AddFund />} />
         <Route path="/addevent" element={<AddEvent />} />
-        <Route path="/parents" element={<Parents />} />
-        <Route path="/teachers" element={<Teachers />} />
         <Route path="/addprogram" element={<AddProgram />} />
         <Route path="/classes" element={<Classes />} />
+        <Route path="/addstudent" element={<AddStudent />} />
+        <Route path="/learn" element={<Learn />} /> 
       </Route>
 
       

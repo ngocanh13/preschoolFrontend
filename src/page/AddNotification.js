@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const AddNotification = () => {
     return (
         <div className="container mt-4">
-            <h2 className="text-primary mb-4 border-bottom border-primary border-2 d-inline-block p-2 title-border-radius">Thêm Thông Báo</h2>
+            <h2 className="text-primary mb-4 d-inline-block p-2 title-border-radius">Thêm Thông Báo</h2>
             <div className="d-flex justify-content-start mb-3">
                             <Link to="/notification" className="btn" style={{backgroundColor: "#FF4880", color: "white"}}
                                 onMouseEnter={(e) => e.target.style.backgroundColor = "var(--bs-secondary)"}

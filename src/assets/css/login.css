@@ -22,7 +22,7 @@
   body {
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     font-size: 14px;
-    background: #FFECF2;
+    background: #f4f5f7bd;
     padding: var(--spacing);
     text-align: center;
   }

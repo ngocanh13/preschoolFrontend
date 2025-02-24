@@ -40,19 +40,15 @@ export default function TimeTable() {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">7:00 - 7:30</th>
+                  <th scope="row">7:30 - 8:00</th>
                   <td colSpan="5" className="text-center">Đón trẻ - Điểm danh</td>
                 </tr>
                 <tr>
-                  <th scope="row">7:30 - 8:00</th>
+                  <th scope="row">8:00 - 8:30</th>
                   <td colSpan="5" className="text-center">Thể dục buổi sáng</td>
                 </tr>
                 <tr>
-                  <th scope="row">8:00 - 8:30</th>
-                  <td colSpan="5" className="text-center">Bữa sáng</td>
-                </tr>
-                <tr>
-                  <th scope="row">9:00 - 10:00</th>
+                  <th scope="row">8:30 - 9:30</th>
                   <td>Học Toán</td>
                   <td>Tập đọc</td>
                   <td>Mỹ thuật</td>
@@ -60,11 +56,11 @@ export default function TimeTable() {
                   <td>Thể chất</td>
                 </tr>
                 <tr>
-                  <th scope="row">10:00 - 10:30</th>
+                  <th scope="row">9:30 - 10:00</th>
                   <td colSpan="5" className="text-center">Bữa phụ sáng</td>
                 </tr>
                 <tr>
-                  <th scope="row">10:30 - 11:30</th>
+                  <th scope="row">10:00 - 11:00</th>
                   <td>Tiếng Anh</td>
                   <td>Kỹ năng sống</td>
                   <td>Tiếng Anh</td>
@@ -72,16 +68,16 @@ export default function TimeTable() {
                   <td>Tiếng Anh</td>
                 </tr>
                 <tr>
-                  <th scope="row">11:30 - 12:15</th>
+                  <th scope="row">11:00 - 11:45</th>
                   <td colSpan="5" className="text-center">Ăn trưa</td>
                 </tr>
                 <tr>
-                  <th scope="row">12:15 - 14:00</th>
+                  <th scope="row">11:45 - 14:00</th>
                   <td colSpan="5" className="text-center">Ngủ trưa</td>
                 </tr>
                 <tr>
                   <th scope="row">14:00 - 14:30</th>
-                  <td colSpan="5" className="text-center">Bữa chiều</td>
+                  <td colSpan="5" className="text-center">Bữa phụ trưa</td>
                 </tr>
                 <tr>
                   <th scope="row">14:30 - 15:30</th>
