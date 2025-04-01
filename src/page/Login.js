@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 const RightElement = styled.div`
 background: #0dcaf047;
@@ -31,38 +30,42 @@ border-bottom-right-radius: .3rem;
 
 export default function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = () => {
-  
     const adminAccount = {
       email: "admin@babycare.com",
       password: "123456",
-      role: "admin"
+      role: "admin",
     };
 
     const teacherAccount = {
-      email: "teacher@babycare.com", 
+      email: "teacher@babycare.com",
       password: "teacher123",
-      role: "teacher"
+      role: "teacher",
     };
 
-    
     if (email === adminAccount.email && password === adminAccount.password) {
-      localStorage.setItem('userRole', adminAccount.role);
-      navigate('/');
-    } else if (email === teacherAccount.email && password === teacherAccount.password) {
-      localStorage.setItem('userRole', teacherAccount.role);
-      navigate('/');
+      localStorage.setItem("userRole", adminAccount.role);
+      navigate("/");
+    } else if (
+      email === teacherAccount.email &&
+      password === teacherAccount.password
+    ) {
+      localStorage.setItem("userRole", teacherAccount.role);
+      navigate("/");
     } else {
-      setError('Email hoặc mật khẩu không đúng!');
+      setError("Email hoặc mật khẩu không đúng!");
     }
   };
 
   return (
-    <section className="h-100 gradient-form" style={{ backgroundColor: "#f8f9fa" }}>
+    <section
+      className="h-100 gradient-form"
+      style={{ backgroundColor: "#f8f9fa" }}
+    >
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-xl-10">
@@ -72,19 +75,23 @@ export default function Login() {
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center mb-5">
                       <h1 className="text-primary display-6 mb-0">
-                          <span style={{ color: '#ff4880' }}>Baby</span> 
-                          <span className="text-secondary">Care</span>
-                            </h1>
-                      <p className="text-muted">Welcome back! Please login to continue</p>
+                        <span style={{ color: "#ff4880" }}>Baby</span>
+                        <span className="text-secondary">Care</span>
+                      </h1>
+                      <p className="text-muted">
+                        Welcome back! Please login to continue
+                      </p>
                     </div>
 
-                    <form onSubmit={(e) => {
-                      e.preventDefault();
-                      handleLogin();
-                    }}>
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        handleLogin();
+                      }}
+                    >
                       <div className="form-floating mb-4">
                         <input
-                          type="email" 
+                          type="email"
                           className="form-control"
                           id="emailInput"
                           placeholder="Email address"
@@ -114,16 +121,22 @@ export default function Login() {
 
                       <div className="d-flex justify-content-between mb-4">
                         <div className="form-check">
-                          <input 
+                          <input
                             className="form-check-input"
                             type="checkbox"
                             id="rememberMe"
                           />
-                          <label className="form-check-label" htmlFor="rememberMe">
+                          <label
+                            className="form-check-label"
+                            htmlFor="rememberMe"
+                          >
                             Remember me
                           </label>
                         </div>
-                        <a href="#!" className="text-primary text-decoration-none">
+                        <a
+                          href="#!"
+                          className="text-primary text-decoration-none"
+                        >
                           Forgot password?
                         </a>
                       </div>
@@ -140,7 +153,10 @@ export default function Login() {
                       <div className="text-center">
                         <p className="mb-0">
                           Don't have an account?{" "}
-                          <Link to="/register" className="text-primary text-decoration-none fw-bold">
+                          <Link
+                            to="/register"
+                            className="text-primary text-decoration-none fw-bold"
+                          >
                             Sign Up
                           </Link>
                         </p>
@@ -159,7 +175,10 @@ export default function Login() {
                   <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                     <h2 className="mb-4 fw-bold">Welcome to BabyCare</h2>
                     <p className="mb-4">
-                      Join our community of parents and educators dedicated to providing the best care and education for children. Our platform offers comprehensive tools and resources to support early childhood development.
+                      Join our community of parents and educators dedicated to
+                      providing the best care and education for children. Our
+                      platform offers comprehensive tools and resources to
+                      support early childhood development.
                     </p>
                     <div className="d-flex gap-3 mb-4">
                       <div>

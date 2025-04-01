@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Unauthorized = () => {
   return (
@@ -9,7 +9,9 @@ const Unauthorized = () => {
           <i className="fas fa-exclamation-triangle me-2"></i>
           Unauthorized Access
         </h2>
-        <p className="mb-4">Sorry, you don't have permission to access this page.</p>
+        <p className="mb-4">
+          Sorry, you don't have permission to access this page.
+        </p>
         <Link to="/" className="btn btn-primary">
           <i className="fas fa-home me-2"></i>
           Return to Home
@@ -19,4 +21,4 @@ const Unauthorized = () => {
   );
 };
 
-export default Unauthorized; 
+export default Unauthorized;

@@ -165,4 +165,7 @@
   .nav li:hover::after {
     width: 100%;
   }
-  
+  .btn:focus{
+    outline: none !important;
+    box-shadow: none !important;
+  }

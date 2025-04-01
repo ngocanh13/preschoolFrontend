@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import Event from '../page/Event';
+import Schedule from '../page/schedule';
 import Login from '../page/Login';
 import Programs from '../page/Program';
 import Menu from '../page/menu';
@@ -13,7 +13,7 @@ import Register from '../page/Register';
 import AddEvent from '../page/AddEvent';
 import AddProgram from '../page/AddProgram';
 import Classes from '../page/Classes';
-import PrivateRoutes from './PrivateRoutes';
+import PrivateRoutes from '../page/PrivateRoutes';
 import Unauthorized from '../page/Unauthorized';
 import AddStudent from '../page/AddStudent'
 import Learn from '../page/Learn'
@@ -28,7 +28,7 @@ const AppRouters = () => {
       {/* Protected routes - Both admin and teacher */}
       <Route element={<PrivateRoutes allowedRoles={['admin', 'teacher']} />}>
         <Route path="/" element={<Programs />} />
-        <Route path="/event" element={<Event />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/addmenu" element={<AddMenu />} />
         <Route path="/qrscanner" element={<QRScanner />} />

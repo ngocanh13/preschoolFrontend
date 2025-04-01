@@ -17,7 +17,7 @@ const Nav = () => {
         'scanner',
         'classes',
         'notification',
-        'event',
+        'schedule',
         'learn'
     ];
 
@@ -44,7 +44,7 @@ const Nav = () => {
             }}>
             <div className="container px-0">
                 <nav className="navbar navbar-light navbar-expand-xl py-0">
-                    <div className="d-flex flex-column" style={{width: "280px", minHeight: "100vh", backgroundColor: "#ffffff", borderRight: "1px solid #dee2e6"}}>
+                    <div className="d-flex flex-column" style={{width: "280px", minHeight: "100vh", backgroundColor: "#ffffff", borderRight: "1px solid #dee2e6", textAlign: "left"}}>
                         <a href="index.html" className="navbar-brand p-4 text-center border-bottom">
                             <h1 className="text-primary display-6 mb-0">
                                 <span style={{ color: '#ff4880' }}>Baby</span> 
@@ -59,29 +59,18 @@ const Nav = () => {
                                     onClick={() => setSelectedItem('programs')}
                                     style={{ color: '#007bff' }} // Set text color to a lighter blue
                                 >
-                                    <i className="fas fa-graduation-cap me-3"></i> Programs
+                                    <i className="fas fa-graduation-cap me-3"></i> Khóa học
                                 </Link>
                             )}
 
-                            {isMenuItemVisible('learn') && (
-                                <Link 
-                                    to="/learn" 
-                                    className={`nav-link py-3 px-4 mb-1 rounded-3 mx-2 hover-primary ${selectedItem === 'learn' ? 'bg-success text-white' : ''}`}
-                                    onClick={() => setSelectedItem('learn')}
-                                    style={{ color: '#007bff' }} // Set text color to a lighter blue
-                                >
-                                    <i className="fas fa-book me-3"></i> Chương trình học
-                                </Link>
-                            )}
-                            
                             {isMenuItemVisible('menu') && (
                                 <Link 
                                     to="/menu" 
                                     className={`nav-link py-3 px-4 mb-1 rounded-3 mx-2 hover-primary ${selectedItem === 'menu' ? 'bg-success text-white' : ''}`}
                                     onClick={() => setSelectedItem('menu')}
-                                    style={{ color: '#007bff' }} // Set text color to a lighter blue
+                                    style={{ color: '#007bff' }} 
                                 >
-                                    <i className="fas fa-utensils me-3"></i> Menu
+                                    <i className="fas fa-utensils me-3"></i> Thực đơn
                                 </Link>
                             )}
 
@@ -90,9 +79,9 @@ const Nav = () => {
                                     to="/QRScanner" 
                                     className={`nav-link py-3 px-4 mb-1 rounded-3 mx-2 hover-primary ${selectedItem === 'scanner' ? 'bg-success text-white' : ''}`}
                                     onClick={() => setSelectedItem('scanner')}
-                                    style={{ color: '#007bff' }} // Set text color to a lighter blue
+                                    style={{ color: '#007bff' }} 
                                 >
-                                    <i className="fas fa-qrcode me-3"></i> Scanner
+                                    <i className="fas fa-qrcode me-3"></i> Điểm danh 
                                 </Link>
                             )}
 
@@ -103,16 +92,16 @@ const Nav = () => {
                                     onClick={() => setSelectedItem('classes')}
                                     style={{ color: '#007bff' }} // Set text color to a lighter blue
                                 >
-                                    <i className="fas fa-chalkboard me-3"></i> Classes
+                                    <i className="fas fa-chalkboard me-3"></i> Học sinh 
                                 </Link>
                             )}
 
-                            {isMenuItemVisible('event') && (
+                            {isMenuItemVisible('schedule') && (
                                 <Link 
-                                    to="/event" 
-                                    className={`nav-link py-3 px-4 mb-1 rounded-3 mx-2 hover-primary ${selectedItem === 'event' ? 'bg-success text-white' : ''}`}
-                                    onClick={() => setSelectedItem('event')}
-                                    style={{ color: '#007bff' }} // Set text color to a lighter blue
+                                    to="/schedule" 
+                                    className={`nav-link py-3 px-4 mb-1 rounded-3 mx-2 hover-primary ${selectedItem === 'schedule' ? 'bg-success text-white' : ''}`}
+                                    onClick={() => setSelectedItem('schedule')}
+                                    style={{ color: '#007bff' }} 
                                 >
                                     <i className="fas fa-calendar-alt me-3"></i> Thời khóa biểu
                                 </Link>
@@ -125,28 +114,27 @@ const Nav = () => {
                                     onClick={() => setSelectedItem('classfund')}
                                     style={{ color: '#007bff' }} // Set text color to a lighter blue
                                 >
-                                    <i className="fas fa-dollar-sign me-3"></i> Class Fund
+                                    <i className="fas fa-dollar-sign me-3"></i> Học phí 
                                 </Link>
                             )}
                         </div>
 
-                        <div className="mt-auto p-4 border-top ">
+                        <div className="mt-auto p-4 border-top">
                             <button 
                                 onClick={handleLogout}
                                 className="btn btn-primary w-100 py-3 rounded-pill 
                                 mb-3 btn btn-primary" // Changed from btn-primary to btn
-                               // style={{ backgroundColor: '#dee2e6', color: '#007bff' }} // Set background color to #dee2e6 and text color to blue
                             >
                                 <i className="fas fa-sign-out-alt me-2"></i>
-                                {userRole ? <span >log out</span> : "Đăng nhập"}
+                                {userRole ? <span >Đăng xuất </span> : "Đăng nhập"}
                             </button>
                             
                             {userRole !== 'teacher' && (
                                 <Link to="/register" 
                                 className="btn btn-primary w-100 py-3 rounded-pill 
-                                mb-3 btn btn-primary"> {/* Set background color to #dee2e6 and text color to a lighter blue */}
+                                mb-3 "> 
                                     <i className="fas fa-user-plus me-2"></i>
-                                    Sign up
+                                    Đăng ký
                                 </Link>
                             )}
                             

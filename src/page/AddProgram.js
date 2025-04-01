@@ -10,25 +10,28 @@ const AddProgram = () => {
           data-wow-delay="0.1s"
           style={{ maxWidth: "600px" }}
         >
-          <h1 className="text-primary mb-4 d-inline-block p-2 title-border-radius">Thêm Khóa Học</h1>
+          <h1 className="text-primary mb-4 d-inline-block p-2 title-border-radius">
+            Thêm Khóa Học
+          </h1>
           <p>Thêm khóa học mới cho trường mầm non</p>
         </div>
 
         <div className="d-flex justify-content-start mb-3">
-          <Link
-            to="/"
-            className="btn"
-            style={{ backgroundColor: "#FF4880", color: "white" }}
-            onMouseEnter={(e) =>
-              (e.target.style.backgroundColor = "var(--bs-secondary)")
-            }
-            onMouseLeave={(e) => (e.target.style.backgroundColor = "#FF4880")}
-          >
-            <i className="fas fa-arrow-left me-1"></i>
-            Quay về
-          </Link>
+          <button className="btn btn-primary">
+            <Link
+              to="/"
+              className="btn btn-primary"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <i className="fas fa-arrow-left me-1"></i>
+              Quay lại
+            </Link>
+          </button>
         </div>
-
+      </div>
+      <div className="row g-5 justify-content-center">
         <div
           className="bg-light rounded p-4 wow fadeInUp"
           data-wow-delay="0.2s"
@@ -123,17 +126,7 @@ const AddProgram = () => {
               </div>
 
               <div className="col-12 text-center">
-                <button
-                  type="submit"
-                  className="btn"
-                  style={{ backgroundColor: "#FF4880", color: "white" }}
-                  onMouseOver={(e) =>
-                    (e.target.style.backgroundColor = "var(--bs-secondary)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.target.style.backgroundColor = "#FF4880")
-                  }
-                >
+                <button type="submit" className="btn btn-primary">
                   Thêm khóa học
                 </button>
               </div>

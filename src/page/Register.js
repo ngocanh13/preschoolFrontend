@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import styled from "styled-components";
 
 const RightElement = styled.div`
@@ -24,7 +24,10 @@ background: -webkit-linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e
 
 export default function Register() {
   return (
-    <section className="h-100 gradient-form" style={{ backgroundColor: "#f8f9fa" }}>
+    <section
+      className="h-100 gradient-form"
+      style={{ backgroundColor: "#f8f9fa" }}
+    >
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-xl-10">
@@ -33,10 +36,10 @@ export default function Register() {
                 <div className="col-lg-6">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center mb-5">
-                        <h1 className="text-primary display-6 mb-0">
-                          <span style={{ color: '#ff4880' }}>Baby</span> 
-                          <span className="text-secondary">Care</span>
-                        </h1>
+                      <h1 className="text-primary display-6 mb-0">
+                        <span style={{ color: "#ff4880" }}>Baby</span>
+                        <span className="text-secondary">Care</span>
+                      </h1>
                       <p className="text-muted">Create your account</p>
                     </div>
 
@@ -44,7 +47,7 @@ export default function Register() {
                       <div className="form-floating mb-3">
                         <input
                           type="text"
-                          className="form-control" 
+                          className="form-control"
                           id="fullNameInput"
                           placeholder="Full Name"
                         />
@@ -58,7 +61,7 @@ export default function Register() {
                         <input
                           type="email"
                           className="form-control"
-                          id="emailInput" 
+                          id="emailInput"
                           placeholder="Email address"
                         />
                         <label htmlFor="emailInput">
@@ -123,7 +126,6 @@ export default function Register() {
                         <button
                           type="button"
                           className="btn btn-primary px-5 py-3 btn-border-radius btn btn-primary"
-                          
                         >
                           Sign Up
                         </button>
@@ -132,7 +134,10 @@ export default function Register() {
                       <div className="text-center">
                         <p className="mb-0">
                           Already have an account?{" "}
-                          <a href="#!" className="text-primary text-decoration-none fw-bold">
+                          <a
+                            href="#!"
+                            className="text-primary text-decoration-none fw-bold"
+                          >
                             Login
                           </a>
                         </p>
@@ -145,7 +150,10 @@ export default function Register() {
                   <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                     <h2 className="mb-4 fw-bold">Join BabyCare Today</h2>
                     <p className="mb-4">
-                      Create your account to become part of our growing community. Whether you're a parent, teacher, or administrator, BabyCare provides the tools and resources you need for early childhood development.
+                      Create your account to become part of our growing
+                      community. Whether you're a parent, teacher, or
+                      administrator, BabyCare provides the tools and resources
+                      you need for early childhood development.
                     </p>
                     <div className="d-flex gap-3 mb-4">
                       <div>
