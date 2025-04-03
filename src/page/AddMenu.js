@@ -1,25 +1,49 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-// Import useState
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; 
+import httpClient from '../auth/httpClient';
+
+
+
 
 const AddMenu = () => {
-  const [menu, setMenu] = useState([
-    { day: "Thứ 2", breakfast: "Cháo Thịt Bằm + Rau Củ", snack: "Bánh Bông Lan Hoặc Bánh Quy", lunch: "Thịt Gà Kho Nấm", afternoon: "Súp Bí Đỏ Thịt Bằm", evening: "Sữa Chua Hoặc Váng Sữa" },
-    { day: "Thứ 3", breakfast: "Bánh Mì + Sữa Tươi", snack: "Trái cây", lunch: "Cơm Gà", afternoon: "Súp Cà Rốt", evening: "Bánh Flan" }
-  ]);
+  const [menu, setMenu] = useState('');
 
-  const [newMenu, setNewMenu] = useState({ day: "", breakfast: "", snack: "", lunch: "", afternoon: "", evening: "" });
+  
+
+  const [newMenu, setNewMenu] = useState({
+    day: "",
+    breakfast: "",
+    snack: "",
+    lunch: "",
+    afternoon: "",
+    evening: "",
+  });
   const [showForm, setShowForm] = useState(false);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const handleChange = (e) => {
     setNewMenu({ ...newMenu, [e.target.name]: e.target.value });
   };
 
   const addMenu = () => {
-    if (newMenu.day && newMenu.breakfast && newMenu.snack && newMenu.lunch && newMenu.afternoon && newMenu.evening) {
+    if (
+      newMenu.day &&
+      newMenu.breakfast &&
+      newMenu.snack &&
+      newMenu.lunch &&
+      newMenu.afternoon &&
+      newMenu.evening
+    ) {
       setMenu([...menu, newMenu]);
-      setNewMenu({ day: "", breakfast: "", snack: "", lunch: "", afternoon: "", evening: "" });
+      setNewMenu({
+        day: "",
+        breakfast: "",
+        snack: "",
+        lunch: "",
+        afternoon: "",
+        evening: "",
+      });
       setShowForm(false);
     } else {
       alert("Vui lòng điền đầy đủ thông tin!");
@@ -44,23 +68,82 @@ const AddMenu = () => {
           </Link>
         </button>
       </div>
-        <div className="card p-3 mb-4">
-          
-          <input type="text" name="day" placeholder="thứ" value={newMenu.day} onChange={handleChange} className="form-control mb-2" />
-          <input type="text" name="breakfast" placeholder="Bữa sáng" value={newMenu.breakfast} onChange={handleChange} className="form-control mb-2" />
-          <input type="text" name="snack" placeholder="Bữa phụ sáng" value={newMenu.snack} onChange={handleChange} className="form-control mb-2" />
-          <input type="text" name="lunch" placeholder="Bữa trưa" value={newMenu.lunch} onChange={handleChange} className="form-control mb-2" />
-          <input type="text" name="afternoon" placeholder="Bữa chiều" value={newMenu.afternoon} onChange={handleChange} className="form-control mb-2" />
-          <input type="text" name="evening" placeholder="Bữa phụ chiều" value={newMenu.evening} onChange={handleChange} className="form-control mb-2" />
-          <div className="text-center">
-            <button className="btn btn-primary btn-sm px-3 py-2" onClick={addMenu}>
+      <div className="card p-3 mb-4">
+        <input
+          type="text"
+          name="day"
+          placeholder="thứ"
+          value={newMenu.day}
+          onChange={handleChange}
+          className="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="breakfast"
+          placeholder="Bữa sáng"
+          value={newMenu.breakfast}
+          onChange={handleChange}
+          className="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="snack"
+          placeholder="Bữa phụ sáng"
+          value={newMenu.snack}
+          onChange={handleChange}
+          className="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="lunch"
+          placeholder="Bữa trưa"
+          value={newMenu.lunch}
+          onChange={handleChange}
+          className="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="afternoon"
+          placeholder="Bữa chiều"
+          value={newMenu.afternoon}
+          onChange={handleChange}
+          className="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="evening"
+          placeholder="Bữa phụ chiều"
+          value={newMenu.evening}
+          onChange={handleChange}
+          className="form-control mb-2"
+        />
+        
+        <div className="text-center">
+          <button
+            className="btn btn-primary btn-sm px-3 py-2"
+            onClick={addMenu}
+          >
             <i className="fas fa-plus me-2"></i>
-              Thêm
-            </button>
-          </div>
+            Thêm
+          </button>
         </div>
-    
-
+      </div>
+      <div className="mb-3">
+          <input
+            type="date"
+            placeholder="Ngày bắt đầu"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            className="form-control mb-2"
+          />
+          <input
+            type="date"
+            placeholder="Ngày kết thúc"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            className="form-control mb-2"
+          />
+        </div>
       <div className="table-responsive shadow rounded">
         <table className="table table-bordered table-hover">
           <thead className="table-primary">
@@ -74,7 +157,7 @@ const AddMenu = () => {
             </tr>
           </thead>
           <tbody>
-            {menu.map((item, index) => (
+          {(menu || []).map((item, index) => (
               <tr key={index}>
                 <td>{item.day}</td>
                 <td>{item.breakfast}</td>
@@ -85,15 +168,16 @@ const AddMenu = () => {
               </tr>
             ))}
           </tbody>
-           
-          {/* <div class="col-12 text-center"><button type="submit" class="btn btn-primary">Lưu</button></div> */}
         </table>
         <div className="text-center">
-            <button className="btn btn-primary btn-sm px-3 py-2 my-3" onClick={addMenu}>
+          <button
+            className="btn btn-primary btn-sm px-3 py-2 my-3"
+            onClick={addMenu}
+          >
             <i className="fas fa-plus me-2"></i>
-              Lưu
-            </button>
-          </div> 
+            Lưu
+          </button>
+        </div>
       </div>
     </div>
   );

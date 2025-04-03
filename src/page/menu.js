@@ -5,27 +5,39 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import httpClient from "../auth/httpClient";
 
 const Menu = () => {
-  const [menu, setMenu] = useState([]);
-  const startDate = new Date("2023-01-01"); // Set the start date
-  const endDate = new Date("2023-12-31"); // Set the end date
+  const [menu, setMenu] = useState("");
+  const startDate = new Date("2023-01-01");
+  const endDate = new Date("2023-12-31");
 
   useEffect(() => {
-    fetchMenu();
+    (async () => {
+      await fetchMenus();
+    })();
   }, []);
 
-  const fetchMenu = async () => {
+  const fetchMenus = async () => {
     try {
-      const response = await httpClient.get("/api/menu");
-      if (response.data && Array.isArray(response.data)) {
+      const response = await httpClient.get("/menus");
+      if (Array.isArray(response.data)) {
         setMenu(response.data);
-      } else if (response.data && typeof response.data === 'object') {
+      } else if (response.data && typeof response.data === "object") {
         setMenu(Object.values(response.data));
       } else {
         console.error("Invalid data format received:", response.data);
+        setMenu([]);
       }
     } catch (error) {
-      console.error("Lỗi khi lấy thực đơn:", error);
+      console.error("Lỗi khi lấy danh sách thực đơn :", error);
       setMenu([]);
+    }
+  };
+
+  const deleteAllMenus = async () => {
+    try {
+      await httpClient.delete("/menus/delete-all");
+      setMenu([]); // Clear the menu state after deletion
+    } catch (error) {
+      console.error("Lỗi khi xóa tất cả thực đơn :", error);
     }
   };
 
@@ -66,18 +78,23 @@ const Menu = () => {
             </tr>
           </thead>
           <tbody>
-            {menu.map((item, index) => (
+            {(menu || []).map((item, index) => (
               <tr key={index}>
                 <td>{item.day}</td>
                 <td>{item.breakfast}</td>
-                <td>{item.snack}</td>
                 <td>{item.lunch}</td>
-                <td>{item.afternoon}</td>
-                <td>{item.evening}</td>
+                <td>{item.lunch}</td>
+                <td>{item.dinner}</td>
+                <td>{item.dinner}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        <div className="text-end mt-3">
+          <button className="btn btn-outline-danger btn-sm" onClick={deleteAllMenus}>
+            <i className="fas fa-trash me-1"></i>Xóa tất cả
+          </button>
+        </div>
       </div>
     </div>
   );
