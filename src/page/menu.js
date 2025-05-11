@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import httpClient from "../auth/httpClient";
 
 const Menu = () => {
-  const [menu, setMenu] = useState("");
+  const [menu, setMenu] = useState([]);
   const startDate = new Date("2023-01-01");
   const endDate = new Date("2023-12-31");
 
@@ -58,10 +58,10 @@ const Menu = () => {
           <i className="fas fa-plus me-2"></i>Thêm thực đơn
         </Link>
       </div>
-      <div className="mt-4">
+      {/* <div className="mt-4">
         <h4 className="text-secondary">Ngày tháng</h4>
         <p>{`${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`}</p>
-      </div>
+      </div> */}
 
       <div className="table-responsive shadow rounded">
         <table className="table table-bordered table-hover">
@@ -80,12 +80,12 @@ const Menu = () => {
           <tbody>
             {(menu || []).map((item, index) => (
               <tr key={index}>
-                <td>{item.day}</td>
+                <td>{item.dayOfWeek}</td>
                 <td>{item.breakfast}</td>
-                <td>{item.lunch}</td>
+                <td>{item.second_breakfast}</td>
                 <td>{item.lunch}</td>
                 <td>{item.dinner}</td>
-                <td>{item.dinner}</td>
+                <td>{item.second_dinner}</td>
               </tr>
             ))}
           </tbody>

@@ -59,7 +59,7 @@ const Nav = () => {
                                     onClick={() => setSelectedItem('programs')}
                                     style={{ color: '#007bff' }} // Set text color to a lighter blue
                                 >
-                                    <i className="fas fa-graduation-cap me-3"></i> Khóa học
+                                    <i className="fas fa-graduation-cap me-3"></i> Ngoại khóa
                                 </Link>
                             )}
 

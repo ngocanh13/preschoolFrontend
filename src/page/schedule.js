@@ -2,15 +2,13 @@ import img from "../assets/img/event-1.jpg";
 import img1 from "../assets/img/event-2.jpg";
 import img2 from "../assets/img/event-3.jpg";
 import { Link } from "react-router-dom";
-
 import React, { useEffect, useState } from "react";
 import httpClient from "../auth/httpClient";
 
-
-
 export default function Schedule() {
   const [classes, setClasses] = useState([]);
-  const [selectedClass, setSelectedClass] = useState("Lớp Mầm");
+  const [selectedClass, setSelectedClass] = useState("");
+  const [schedule, setSchedule] = useState([]);
 
   useEffect(() => {
     fetchClasses();
@@ -18,7 +16,7 @@ export default function Schedule() {
 
   const fetchClasses = async () => {
     try {
-      const response = await httpClient.get("/classes/");
+      const response = await httpClient.get("/classes");
       if (Array.isArray(response.data)) {
         setClasses(response.data);
       } else if (response.data && typeof response.data === "object") {
@@ -33,49 +31,37 @@ export default function Schedule() {
     }
   };
 
-  const schedules = {
-    "Lớp Mầm": [
-      { time: "7:00 - 7:30", activity: "Đón trẻ - Điểm danh" },
-      { time: "7:30 - 8:00", activity: "Thể dục buổi sáng" },
-      { time: "8:00 - 8:30", activity: "Bữa sáng" },
-      { time: "9:00 - 10:00", activity: "Học Toán" },
-      { time: "10:00 - 10:30", activity: "Bữa phụ sáng" },
-      { time: "10:30 - 11:30", activity: "Tiếng Anh" },
-      { time: "11:30 - 12:15", activity: "Ăn trưa" },
-      { time: "12:15 - 14:00", activity: "Ngủ trưa" },
-      { time: "14:00 - 14:30", activity: "Bữa chiều" },
-      { time: "14:30 - 15:30", activity: "Hoạt động nhóm" },
-      { time: "15:30 - 16:00", activity: "Bữa phụ chiều" },
-      { time: "16:00 - 16:30", activity: "Hoạt động ngoài trời - Trả trẻ" },
-    ],
-    "Lớp Chồi": [
-      { time: "7:00 - 7:30", activity: "Đón trẻ - Điểm danh" },
-      { time: "7:30 - 8:00", activity: "Thể dục buổi sáng" },
-      { time: "8:00 - 8:30", activity: "Bữa sáng" },
-      { time: "9:00 - 10:00", activity: "Học Tiếng Việt" },
-      { time: "10:00 - 10:30", activity: "Bữa phụ sáng" },
-      { time: "10:30 - 11:30", activity: "Mỹ thuật" },
-      { time: "11:30 - 12:15", activity: "Ăn trưa" },
-      { time: "12:15 - 14:00", activity: "Ngủ trưa" },
-      { time: "14:00 - 14:30", activity: "Bữa chiều" },
-      { time: "14:30 - 15:30", activity: "Kể chuyện" },
-      { time: "15:30 - 16:00", activity: "Bữa phụ chiều" },
-      { time: "16:00 - 16:30", activity: "Hoạt động ngoài trời - Trả trẻ" },
-    ],
-    "Lớp Lá": [
-      { time: "7:00 - 7:30", activity: "Đón trẻ - Điểm danh" },
-      { time: "7:30 - 8:00", activity: "Thể dục buổi sáng" },
-      { time: "8:00 - 8:30", activity: "Bữa sáng" },
-      { time: "9:00 - 10:00", activity: "Học Toán" },
-      { time: "10:00 - 10:30", activity: "Bữa phụ sáng" },
-      { time: "10:30 - 11:30", activity: "Kỹ năng sống" },
-      { time: "11:30 - 12:15", activity: "Ăn trưa" },
-      { time: "12:15 - 14:00", activity: "Ngủ trưa" },
-      { time: "14:00 - 14:30", activity: "Bữa chiều" },
-      { time: "14:30 - 15:30", activity: "Hoạt động nhóm" },
-      { time: "15:30 - 16:00", activity: "Bữa phụ chiều" },
-      { time: "16:00 - 16:30", activity: "Hoạt động ngoài trời - Trả trẻ" },
-    ],
+  const handleClassChange = (e) => {
+    const classId = e.target.value;
+    setSelectedClass(classId);
+
+    const foundClass = classes.find((cls) => cls.id === parseInt(classId));
+    if (foundClass) {
+      setSchedule(foundClass.schedules || []);
+    } else {
+      setSchedule([]);
+    }
+  };
+
+  // Thêm hàm xóa thời khóa biểu của lớp
+  const handleDeleteSchedule = async () => {
+    if (!selectedClass) {
+      alert("Vui lòng chọn lớp cần xóa thời khóa biểu.");
+      return;
+    }
+
+    if (window.confirm("Bạn có chắc muốn xóa toàn bộ thời khóa biểu của lớp này không?")) {
+      try {
+        await httpClient.delete(`/schedules/class/${selectedClass}`);
+        alert("Đã xóa thành công thời khóa biểu!");
+        // Sau khi xóa thì cập nhật lại UI:
+        fetchClasses();
+        setSchedule([]);
+      } catch (error) {
+        console.error("Lỗi khi xóa thời khóa biểu:", error);
+        alert("Xóa thất bại!");
+      }
+    }
   };
 
   return (
@@ -102,19 +88,24 @@ export default function Schedule() {
             <select
               className="form-select w-auto"
               value={selectedClass}
-              onChange={(e) => setSelectedClass(e.target.value)}
+              onChange={handleClassChange}
             >
+              <option value="">Chọn lớp</option>
               {(classes || []).map((item) => (
-                <option key={item.id} value={item.name}>
+                <option key={item.id} value={item.id}>
                   {item.name}
                 </option>
               ))}
             </select>
 
             <div>
-              <button className="btn btn-primary me-2">
-                <i className="fas fa-plus me-1"></i>Thêm
-              </button>
+              <Link
+                to="/addschedule"
+                className="btn btn-primary"
+                style={{ textDecoration: "none" }}
+              >
+                <i className="fas fa-plus me-1"></i> Thêm
+              </Link>
             </div>
           </div>
 
@@ -124,27 +115,34 @@ export default function Schedule() {
                 <table className="table table-bordered table-hover">
                   <thead className="table-primary">
                     <tr>
+                      {/* <th scope="col">Thứ</th> */}
                       <th scope="col">Thời gian</th>
-                      <th scope="col">Hoạt động</th>
+                      <th scope="col">Lịch trình</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {schedules[selectedClass].map((item, index) => (
+                    {(schedule || []).map((item, index) => (
                       <tr key={index}>
-                        <th scope="row">{item.time}</th>
-                        <td>{item.activity}</td>
+                        {/* <td>{item.dayOfWeek}</td> */}
+                        <td>
+                          {item.startTime} - {item.endTime}
+                        </td>
+                        <td>{item.subjectId}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <div className="text-end mt-3">
-                  <button className="btn btn-outline-info btn-sm me-2">
-                    <i className="fas fa-edit me-1"></i>Sửa
-                  </button>
-                  <button className="btn btn-outline-danger btn-sm">
-                    <i className="fas fa-trash me-1"></i>Xóa
-                  </button>
-                </div>
+
+                {selectedClass && (
+                  <div className="text-end mt-3">
+                    <button
+                      className="btn btn-outline-danger btn-sm"
+                      onClick={handleDeleteSchedule}
+                    >
+                      <i className="fas fa-trash me-1"></i> Xóa 
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

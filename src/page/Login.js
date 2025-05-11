@@ -4,28 +4,20 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const RightElement = styled.div`
-background: #0dcaf047;
-/* fallback for old browsers */
-
-
-/* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e3d95);
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
- background: linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e3d95);
-}
-
-@media (min-width: 768px) {
-.gradient-form {
-height: 100vh !important;
-}
-}
-@media (min-width: 769px) {
-.gradient-custom-2 {
-border-top-right-radius: .3rem;
-border-bottom-right-radius: .3rem;
-}
-}
+  background: #0dcaf047;
+  background: linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e3d95);
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
 `;
 
 export default function Login() {
@@ -34,30 +26,29 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = () => {
-    const adminAccount = {
-      email: "admin@babycare.com",
-      password: "123456",
-      role: "admin",
-    };
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
 
-    const teacherAccount = {
-      email: "teacher@babycare.com",
-      password: "teacher123",
-      role: "teacher",
-    };
+      if (!response.ok) {
+        throw new Error("Email hoặc mật khẩu không đúng!");
+      }
 
-    if (email === adminAccount.email && password === adminAccount.password) {
-      localStorage.setItem("userRole", adminAccount.role);
+      const data = await response.json();
+      const token = data.token;
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("userRole", "admin"); // hardcode role nếu chỉ có admin
+
       navigate("/");
-    } else if (
-      email === teacherAccount.email &&
-      password === teacherAccount.password
-    ) {
-      localStorage.setItem("userRole", teacherAccount.role);
-      navigate("/");
-    } else {
-      setError("Email hoặc mật khẩu không đúng!");
+    } catch (error) {
+      setError(error.message);
     }
   };
 
@@ -144,7 +135,7 @@ export default function Login() {
                       <div className="text-center mb-4">
                         <button
                           type="submit"
-                          className="btn btn-primary px-5 py-3 btn-border-radius btn btn-primary"
+                          className="btn btn-primary px-5 py-3 btn-border-radius"
                         >
                           Log in
                         </button>
@@ -163,7 +154,7 @@ export default function Login() {
                       </div>
 
                       {error && (
-                        <div className="alert alert-danger mb-3" role="alert">
+                        <div className="alert alert-danger mt-3" role="alert">
                           {error}
                         </div>
                       )}

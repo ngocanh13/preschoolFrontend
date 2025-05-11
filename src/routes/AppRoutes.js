@@ -10,13 +10,13 @@ import AddNotification from '../page/AddNotification';
 import ClassFund from '../page/ClassFund';
 import AddFund from '../page/AddFund';
 import Register from '../page/Register';
-import AddEvent from '../page/AddEvent';
 import AddProgram from '../page/AddProgram';
 import Classes from '../page/Classes';
 import PrivateRoutes from '../page/PrivateRoutes';
 import Unauthorized from '../page/Unauthorized';
 import AddStudent from '../page/AddStudent'
-import Learn from '../page/Learn'
+import AddSchedule from '../page/AddSchedule';
+import AddTuition from '../page/AddTuition';
 
 const AppRouters = () => {
   return (
@@ -43,11 +43,13 @@ const AppRouters = () => {
         <Route path="/addnotification" element={<AddNotification />} />
         <Route path="/classfund" element={<ClassFund />} />
         <Route path="/addfund" element={<AddFund />} />
-        <Route path="/addevent" element={<AddEvent />} />
         <Route path="/addprogram" element={<AddProgram />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/addstudent" element={<AddStudent />} />
-        <Route path="/learn" element={<Learn />} /> 
+        <Route path="/addschedule" element={<AddSchedule />} />
+        <Route path="/addstudent/:id" element={<AddStudent />} />
+        <Route path="/addtuition" element={<AddTuition />} />
+        <Route path="/addtuition/:id" element={<AddTuition />} />
       </Route>
 
       

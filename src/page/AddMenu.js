@@ -1,54 +1,78 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; 
-import httpClient from '../auth/httpClient';
-
-
-
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import httpClient from "../auth/httpClient";
 
 const AddMenu = () => {
-  const [menu, setMenu] = useState('');
-
-  
-
+  const [menu, setMenu] = useState([]);
   const [newMenu, setNewMenu] = useState({
-    day: "",
+    dayOfWeek: "",
     breakfast: "",
-    snack: "",
+    second_breakfast: "",
     lunch: "",
-    afternoon: "",
-    evening: "",
+    dinner: "",
+    second_dinner: "",
   });
-  const [showForm, setShowForm] = useState(false);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-
+  
   const handleChange = (e) => {
     setNewMenu({ ...newMenu, [e.target.name]: e.target.value });
   };
 
+  const handleDaySelect = (day) => {
+    setNewMenu({ ...newMenu, dayOfWeek: day });
+  };
+
   const addMenu = () => {
+    const {
+      dayOfWeek,
+      breakfast,
+      second_breakfast,
+      lunch,
+      dinner,
+      second_dinner,
+    } = newMenu;
+
     if (
-      newMenu.day &&
-      newMenu.breakfast &&
-      newMenu.snack &&
-      newMenu.lunch &&
-      newMenu.afternoon &&
-      newMenu.evening
+      dayOfWeek &&
+      breakfast &&
+      second_breakfast &&
+      lunch &&
+      dinner &&
+      second_dinner
     ) {
       setMenu([...menu, newMenu]);
       setNewMenu({
-        day: "",
+        dayOfWeek: "",
         breakfast: "",
-        snack: "",
+        second_breakfast: "",
         lunch: "",
-        afternoon: "",
-        evening: "",
+        dinner: "",
+        second_dinner: "",
       });
-      setShowForm(false);
     } else {
       alert("Vui lòng điền đầy đủ thông tin!");
     }
   };
+
+  const saveMenus = async () => {
+    if (menu.length === 0) {
+      alert("Không có thực đơn nào để lưu!");
+      return;
+    }
+
+    try {
+      const response = await httpClient.post("/menus/bulk-save", menu);
+      if (response.status === 200) {
+        alert("Thực đơn đã được lưu thành công!");
+        setMenu([]);
+      } else {
+        alert("Lưu thực đơn không thành công! Mã lỗi: " + response.status);
+      }
+    } catch (error) {
+      alert("Ngày trong thực đơn bị trùng!");
+    }
+  };
+
+  const weekdays = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6"];
 
   return (
     <div className="container mt-4">
@@ -68,56 +92,83 @@ const AddMenu = () => {
           </Link>
         </button>
       </div>
+
       <div className="card p-3 mb-4">
-        <input
-          type="text"
-          name="day"
-          placeholder="thứ"
-          value={newMenu.day}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-        <input
-          type="text"
-          name="breakfast"
-          placeholder="Bữa sáng"
-          value={newMenu.breakfast}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-        <input
-          type="text"
-          name="snack"
-          placeholder="Bữa phụ sáng"
-          value={newMenu.snack}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-        <input
-          type="text"
-          name="lunch"
-          placeholder="Bữa trưa"
-          value={newMenu.lunch}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-        <input
-          type="text"
-          name="afternoon"
-          placeholder="Bữa chiều"
-          value={newMenu.afternoon}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-        <input
-          type="text"
-          name="evening"
-          placeholder="Bữa phụ chiều"
-          value={newMenu.evening}
-          onChange={handleChange}
-          className="form-control mb-2"
-        />
-        
+        <div className="mb-3 text-start">
+          <label className="form-label">Chọn ngày trong tuần:</label>
+          <div className="d-flex gap-2 flex-wrap">
+            {weekdays.map((day) => {
+              const isUsed = menu.some((item) => item.dayOfWeek === day);
+              return (
+                <button
+                  key={day}
+                  type="button"
+                  className={`btn btn-sm ${
+                    newMenu.dayOfWeek === day
+                      ? "btn btn-primary"
+                      : "btn-outline-primary"
+                  }`}
+                  onClick={() => handleDaySelect(day)}
+                  disabled={isUsed}
+                >
+                  {day}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="mb-2 text-start">
+          <label className="form-label">Bữa sáng</label>
+          <input
+            type="text"
+            name="breakfast"
+            value={newMenu.breakfast}
+            onChange={handleChange}
+            className="form-control text-start"
+          />
+        </div>
+        <div className="mb-2 text-start">
+          <label className="form-label">Bữa phụ sáng</label>
+          <input
+            type="text"
+            name="second_breakfast"
+            value={newMenu.second_breakfast}
+            onChange={handleChange}
+            className="form-control text-start"
+          />
+        </div>
+        <div className="mb-2 text-start">
+          <label className="form-label">Bữa trưa</label>
+          <input
+            type="text"
+            name="lunch"
+            value={newMenu.lunch}
+            onChange={handleChange}
+            className="form-control text-start"
+          />
+        </div>
+        <div className="mb-2 text-start">
+          <label className="form-label">Bữa chiều</label>
+          <input
+            type="text"
+            name="dinner"
+            value={newMenu.dinner}
+            onChange={handleChange}
+            className="form-control text-start"
+          />
+        </div>
+        <div className="mb-2 text-start">
+          <label className="form-label">Bữa phụ chiều</label>
+          <input
+            type="text"
+            name="second_dinner"
+            value={newMenu.second_dinner}
+            onChange={handleChange}
+            className="form-control text-start"
+          />
+        </div>
+
         <div className="text-center">
           <button
             className="btn btn-primary btn-sm px-3 py-2"
@@ -128,22 +179,7 @@ const AddMenu = () => {
           </button>
         </div>
       </div>
-      <div className="mb-3">
-          <input
-            type="date"
-            placeholder="Ngày bắt đầu"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="form-control mb-2"
-          />
-          <input
-            type="date"
-            placeholder="Ngày kết thúc"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="form-control mb-2"
-          />
-        </div>
+
       <div className="table-responsive shadow rounded">
         <table className="table table-bordered table-hover">
           <thead className="table-primary">
@@ -157,24 +193,25 @@ const AddMenu = () => {
             </tr>
           </thead>
           <tbody>
-          {(menu || []).map((item, index) => (
+            {menu.map((item, index) => (
               <tr key={index}>
-                <td>{item.day}</td>
+                <td>{item.dayOfWeek}</td>
                 <td>{item.breakfast}</td>
-                <td>{item.snack}</td>
+                <td>{item.second_breakfast}</td>
                 <td>{item.lunch}</td>
-                <td>{item.afternoon}</td>
-                <td>{item.evening}</td>
+                <td>{item.dinner}</td>
+                <td>{item.second_dinner}</td>
               </tr>
             ))}
           </tbody>
         </table>
+
         <div className="text-center">
           <button
             className="btn btn-primary btn-sm px-3 py-2 my-3"
-            onClick={addMenu}
+            onClick={saveMenus}
           >
-            <i className="fas fa-plus me-2"></i>
+            <i className="fas fa-save me-2"></i>
             Lưu
           </button>
         </div>
@@ -182,4 +219,5 @@ const AddMenu = () => {
     </div>
   );
 };
+
 export default AddMenu;
