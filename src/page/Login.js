@@ -91,7 +91,7 @@ export default function Login() {
                         />
                         <label htmlFor="emailInput">
                           <i className="fas fa-envelope me-2"></i>
-                          Email address
+                          Email 
                         </label>
                       </div>
 
@@ -106,7 +106,7 @@ export default function Login() {
                         />
                         <label htmlFor="passwordInput">
                           <i className="fas fa-lock me-2"></i>
-                          Password
+                          mật khẩu
                         </label>
                       </div>
 
