@@ -12,9 +12,9 @@ const Unauthorized = () => {
         <p className="mb-4">
           Sorry, you don't have permission to access this page.
         </p>
-        <Link to="/" className="btn btn-primary">
+        <Link to="/login" className="btn btn-primary">
           <i className="fas fa-home me-2"></i>
-          Return to Home
+          Return to login
         </Link>
       </div>
     </div>
