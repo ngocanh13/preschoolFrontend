@@ -1,20 +1,30 @@
-
 import './App.css';
 import './assets/css/bootstrap.min.css';
 import './assets/css/login.css';
 import './assets/css/style.css';
+
+import React from 'react';
+import { useLocation } from 'react-router-dom'; // Thêm dòng này
 import Nav from './components/common/Nav';
 import Layout from './layouts';
-import AppRouters from './routes/AppRoutes'
+import AppRouters from './routes/AppRoutes'; // Thêm dòng này
+
 function App() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
   return (
     <div className="App">
-
-      <Layout>
-      
-        <AppRouters/>
-      </Layout>
-
+      <div className="d-flex">
+        {!isLoginPage && <Nav />}
+        {isLoginPage ? (
+          <AppRouters />
+        ) : (
+          <div className="flex-grow-1">
+            <AppRouters />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
