@@ -54,11 +54,18 @@ export default function Login() {
 
   return (
     <section
-      className="h-100 gradient-form"
-      style={{ backgroundColor: "#f8f9fa" }}
+      className="gradient-form d-flex align-items-center justify-content-center"
+      style={{ 
+        backgroundColor: "#f8f9fa", 
+        minHeight: "100vh",
+        width: "100vw",
+        position: "fixed",
+        top: 0,
+        left: 0
+      }}
     >
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
+      <div className="container">
+        <div className="row justify-content-center">
           <div className="col-xl-10">
             <div className="card rounded-4 text-black shadow">
               <div className="row g-0">

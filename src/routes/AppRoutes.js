@@ -21,12 +21,8 @@ import AddTuition from '../page/AddTuition';
 const AppRouters = () => {
   return (
     <Routes>
-      {/* Public routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
-
-      {/* Protected routes - Both admin and teacher */}
-      <Route element={<PrivateRoutes allowedRoles={['admin', 'teacher']} />}>
         <Route path="/" element={<Programs />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/menu" element={<Menu />} />
@@ -34,10 +30,6 @@ const AppRouters = () => {
         <Route path="/qrscanner" element={<QRScanner />} />
         <Route path="/notification" element={<Notification />} />
         <Route path="/addnotification" element={<AddNotification />} />
-      </Route>
-
-      {/* Admin only routes */}
-      <Route element={<PrivateRoutes allowedRoles={['admin']} />}>
         <Route path="/register" element={<Register />} />
         <Route path="/addmenu" element={<AddMenu />} />
         <Route path="/addnotification" element={<AddNotification />} />
@@ -50,7 +42,7 @@ const AppRouters = () => {
         <Route path="/addstudent/:id" element={<AddStudent />} />
         <Route path="/addtuition" element={<AddTuition />} />
         <Route path="/addtuition/:id" element={<AddTuition />} />
-      </Route>
+    
 
       
     </Routes>
