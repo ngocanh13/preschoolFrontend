@@ -21,9 +21,9 @@ import AddTuition from '../page/AddTuition';
 const AppRouters = () => {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/unauthorized" element={<Unauthorized />} />
-        <Route path="/" element={<Programs />} />
+        <Route path="/programs" element={<Programs />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/addmenu" element={<AddMenu />} />

@@ -11,7 +11,7 @@ import AppRouters from './routes/AppRoutes';
 
 function App() {
   const location = useLocation();
-  const isLoginPage = location.pathname === '/login';
+  const isLoginPage = location.pathname === '/';
 
   return (
     <div className="App">

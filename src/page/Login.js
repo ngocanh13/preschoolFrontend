@@ -46,7 +46,7 @@ export default function Login() {
       localStorage.setItem("token", token);
       localStorage.setItem("userRole", "admin"); // hardcode role nếu chỉ có admin
 
-      navigate("/");
+      navigate("/programs");
     } catch (error) {
       setError(error.message);
     }

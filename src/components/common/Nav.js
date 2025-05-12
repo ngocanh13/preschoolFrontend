@@ -22,7 +22,7 @@ const Nav = () => {
     const handleLogout = () => {
         localStorage.removeItem('userRole');
         setUserRole('');
-        navigate('/login');
+        navigate('/');
     };
 
     return (
@@ -44,7 +44,7 @@ const Nav = () => {
                         <div className="nav flex-column py-2">
                             {isMenuItemVisible('programs') && (
                                 <Link
-                                    to="/"
+                                    to="/programs"
                                     className={`nav-link py-3 px-4 mb-1 rounded-3 mx-2 hover-primary ${selectedItem === 'programs' ? 'bg-success text-white' : ''}`}
                                     onClick={() => setSelectedItem('programs')}
                                     style={{ color: '#007bff' }}
