@@ -20,7 +20,9 @@ const Nav = () => {
     }
 
     const handleLogout = () => {
+        // ✅ Xóa token và role
         localStorage.removeItem('userRole');
+        localStorage.removeItem('token');
         setUserRole('');
         navigate('/');
     };
@@ -35,7 +37,7 @@ const Nav = () => {
             <div className="container px-0">
                 <nav className="navbar navbar-light navbar-expand-xl py-0">
                     <div className="d-flex flex-column" style={{ width: "280px", minHeight: "100vh", backgroundColor: "#ffffff", borderRight: "1px solid #dee2e6", textAlign: "left" }}>
-                        <a href="index.html" className="navbar-brand p-4 text-center border-bottom">
+                        <a href="/" className="navbar-brand p-4 text-center border-bottom">
                             <h1 className="text-primary display-6 mb-0">
                                 <span style={{ color: '#ff4880' }}>Baby</span>
                                 <span className="text-secondary">Care</span>
@@ -115,7 +117,7 @@ const Nav = () => {
                                 className="btn btn-primary w-100 py-3 rounded-pill mb-3"
                             >
                                 <i className="fas fa-sign-out-alt me-2"></i>
-                                {userRole ? <span>Đăng xuất</span> : "Đăng nhập"}
+                                Đăng xuất
                             </button>
 
                             <Link to="/register" className="btn btn-primary w-100 py-3 rounded-pill mb-3">
