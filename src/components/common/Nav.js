@@ -125,23 +125,7 @@ const Nav = () => {
                                 Đăng ký
                             </Link>
 
-                            <div className="d-flex justify-content-center mt-4 gap-2">
-                                {isMenuItemVisible('notification') && (
-                                    <Link to="/notification" className="btn btn-light btn-lg rounded-circle position-relative" style={{ color: 'blue', background: '#bdc3ed' }}>
-                                        <i className="fas fa-bell"></i>
-                                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                            3
-                                        </span>
-                                    </Link>
-                                )}
-                                <button
-                                    className="btn btn-light btn-lg rounded-circle"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#searchModal"
-                                >
-                                    <i className="fas fa-search text-primary" />
-                                </button>
-                            </div>
+                            
                         </div>
                     </div>
                 </nav>

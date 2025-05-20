@@ -99,7 +99,7 @@ const AddProgram = () => {
         </div>
 
         <div className="d-flex justify-content-start mb-3">
-          <Link to="/" className="btn btn-primary text-white text-decoration-none">
+          <Link to="/programs" className="btn btn-primary text-white text-decoration-none">
             <i className="fas fa-arrow-left me-1"></i> Quay lại
           </Link>
         </div>

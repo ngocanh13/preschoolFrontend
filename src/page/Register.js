@@ -40,7 +40,13 @@ export default function Register() {
   };
 
   const validateForm = () => {
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.role || !formData.password) {
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.role ||
+      !formData.password
+    ) {
       setMessage("Vui lòng điền đầy đủ thông tin!");
       return false;
     }
@@ -74,8 +80,8 @@ export default function Register() {
         requestData,
         {
           headers: {
-            'Content-Type': 'application/json'
-          }
+            "Content-Type": "application/json",
+          },
         }
       );
 
@@ -94,21 +100,26 @@ export default function Register() {
       }
     } catch (err) {
       console.error("Registration error details:", err);
-      
+
       if (err.response) {
         console.log("Error response data:", err.response.data);
         console.log("Error response status:", err.response.status);
         console.log("Error response headers:", err.response.headers);
       }
 
-      setMessage(err.response?.data?.message || "Đăng ký thất bại! Vui lòng thử lại.");
+      setMessage(
+        err.response?.data?.message || "Đăng ký thất bại! Vui lòng thử lại."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section className="h-100 gradient-form" style={{ backgroundColor: "#f8f9fa" }}>
+    <section
+      className="h-100 gradient-form"
+      style={{ backgroundColor: "#f8f9fa" }}
+    >
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-xl-10">
@@ -121,7 +132,7 @@ export default function Register() {
                         <span style={{ color: "#ff4880" }}>Baby</span>
                         <span className="text-secondary">Care</span>
                       </h1>
-                      <p className="text-muted">Create your account</p>
+                      <p className="text-muted">Tạo tài khoản</p>
                     </div>
 
                     <form onSubmit={handleRegister}>
@@ -135,7 +146,7 @@ export default function Register() {
                           value={formData.fullName}
                           onChange={handleChange}
                         />
-                        <label htmlFor="fullNameInput">Full Name</label>
+                        <label htmlFor="fullNameInput">Họ và tên </label>
                       </div>
 
                       <div className="form-floating mb-3">
@@ -148,7 +159,7 @@ export default function Register() {
                           value={formData.email}
                           onChange={handleChange}
                         />
-                        <label htmlFor="emailInput">Email address</label>
+                        <label htmlFor="emailInput">Email </label>
                       </div>
 
                       <div className="form-floating mb-3">
@@ -161,7 +172,7 @@ export default function Register() {
                           value={formData.phone}
                           onChange={handleChange}
                         />
-                        <label htmlFor="phoneInput">Phone number</label>
+                        <label htmlFor="phoneInput">số điện thoại</label>
                       </div>
 
                       <div className="form-floating mb-3">
@@ -172,12 +183,12 @@ export default function Register() {
                           value={formData.role}
                           onChange={handleChange}
                         >
-                          <option value="">Select role</option>
+                          <option value="">Chọn vai trò</option>
                           <option value="teacher">Teacher</option>
                           <option value="parent">Parent</option>
                           <option value="admin">Admin</option>
                         </select>
-                        <label htmlFor="roleSelect">Role</label>
+                        <label htmlFor="roleSelect">Vai trò</label>
                       </div>
 
                       <div className="form-floating mb-3">
@@ -190,7 +201,7 @@ export default function Register() {
                           value={formData.password}
                           onChange={handleChange}
                         />
-                        <label htmlFor="passwordInput">Password</label>
+                        <label htmlFor="passwordInput">mật khẩu </label>
                       </div>
 
                       <div className="form-floating mb-4">
@@ -203,7 +214,9 @@ export default function Register() {
                           value={formData.confirmPassword}
                           onChange={handleChange}
                         />
-                        <label htmlFor="confirmPasswordInput">Confirm Password</label>
+                        <label htmlFor="confirmPasswordInput">
+                          Nhập lại mật khẩu
+                        </label>
                       </div>
 
                       <div className="text-center mb-4">
@@ -217,12 +230,18 @@ export default function Register() {
                       </div>
 
                       {message && (
-                        <p className={`text-center ${message.includes("thành công") ? "text-success" : "text-danger"}`}>
+                        <p
+                          className={`text-center ${
+                            message.includes("thành công")
+                              ? "text-success"
+                              : "text-danger"
+                          }`}
+                        >
                           {message}
                         </p>
                       )}
 
-                      <div className="text-center">
+                      {/* <div className="text-center">
                         <p className="mb-0">
                           Already have an account?{" "}
                           <a
@@ -232,16 +251,19 @@ export default function Register() {
                             Login
                           </a>
                         </p>
-                      </div>
+                      </div> */}
                     </form>
                   </div>
                 </div>
 
                 <RightElement className="col-lg-6 d-flex align-items-center gradient-custom-2 rounded-end">
                   <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                    <h2 className="mb-4 fw-bold">Join BabyCare Today</h2>
+                    <h2 className="mb-4 fw-bold">
+                      Tham gia BabyCare
+                    </h2>
                     <p className="mb-4">
-                      Create your account to become part of our growing community.
+                      Tạo tài khoản của bạn để trở thành một phần của cộng đồng
+                      đang phát triển của chúng tôi.
                     </p>
                   </div>
                 </RightElement>

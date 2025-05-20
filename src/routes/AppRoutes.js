@@ -5,10 +5,7 @@ import Programs from '../page/Program';
 import Menu from '../page/menu';
 import QRScanner from '../page/QRScanner';
 import AddMenu from '../page/AddMenu';
-import Notification from '../page/Notification';
-import AddNotification from '../page/AddNotification';
 import ClassFund from '../page/ClassFund';
-import AddFund from '../page/AddFund';
 import Register from '../page/Register';
 import AddProgram from '../page/AddProgram';
 import Classes from '../page/Classes';
@@ -16,7 +13,7 @@ import PrivateRoutes from '../page/PrivateRoutes';
 import Unauthorized from '../page/Unauthorized';
 import AddStudent from '../page/AddStudent'
 import AddSchedule from '../page/AddSchedule';
-import AddTuition from '../page/AddTuition';
+import AddTuition from "../page/AddTuition";
 
 const AppRouters = () => {
   return (
@@ -28,13 +25,9 @@ const AppRouters = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/addmenu" element={<AddMenu />} />
         <Route path="/qrscanner" element={<QRScanner />} />
-        <Route path="/notification" element={<Notification />} />
-        <Route path="/addnotification" element={<AddNotification />} />
         <Route path="/register" element={<Register />} />
         <Route path="/addmenu" element={<AddMenu />} />
-        <Route path="/addnotification" element={<AddNotification />} />
         <Route path="/classfund" element={<ClassFund />} />
-        <Route path="/addfund" element={<AddFund />} />
         <Route path="/addprogram" element={<AddProgram />} />
         <Route path="/classes" element={<Classes />} />
         <Route path="/addstudent" element={<AddStudent />} />
@@ -42,9 +35,6 @@ const AppRouters = () => {
         <Route path="/addstudent/:id" element={<AddStudent />} />
         <Route path="/addtuition" element={<AddTuition />} />
         <Route path="/addtuition/:id" element={<AddTuition />} />
-    
-
-      
     </Routes>
   );
 };

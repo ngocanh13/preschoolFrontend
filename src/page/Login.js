@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const RightElement = styled.div`
   background: #0dcaf047;
   background: linear-gradient(to right, #0dcaf04a, #4d65f9a8, #4d65f9, #2e3d95);
-  
+
   @media (min-width: 768px) {
     .gradient-form {
       height: 100vh !important;
@@ -14,8 +14,8 @@ const RightElement = styled.div`
   }
   @media (min-width: 769px) {
     .gradient-custom-2 {
-      border-top-right-radius: .3rem;
-      border-bottom-right-radius: .3rem;
+      border-top-right-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
     }
   }
 `;
@@ -55,13 +55,13 @@ export default function Login() {
   return (
     <section
       className="gradient-form d-flex align-items-center justify-content-center"
-      style={{ 
-        backgroundColor: "#f8f9fa", 
+      style={{
+        backgroundColor: "#f8f9fa",
         minHeight: "100vh",
         width: "100vw",
         position: "fixed",
         top: 0,
-        left: 0
+        left: 0,
       }}
     >
       <div className="container">
@@ -98,7 +98,7 @@ export default function Login() {
                         />
                         <label htmlFor="emailInput">
                           <i className="fas fa-envelope me-2"></i>
-                          Email 
+                          Email
                         </label>
                       </div>
 
@@ -117,7 +117,7 @@ export default function Login() {
                         </label>
                       </div>
 
-                      <div className="d-flex justify-content-between mb-4">
+                      {/* <div className="d-flex justify-content-between mb-4">
                         <div className="form-check">
                           <input
                             className="form-check-input"
@@ -137,7 +137,7 @@ export default function Login() {
                         >
                           Forgot password?
                         </a>
-                      </div>
+                      </div> */}
 
                       <div className="text-center mb-4">
                         <button
@@ -148,7 +148,7 @@ export default function Login() {
                         </button>
                       </div>
 
-                      <div className="text-center">
+                      {/* <div className="text-center">
                         <p className="mb-0">
                           Don't have an account?{" "}
                           <Link
@@ -158,7 +158,7 @@ export default function Login() {
                             Sign Up
                           </Link>
                         </p>
-                      </div>
+                      </div> */}
 
                       {error && (
                         <div className="alert alert-danger mt-3" role="alert">
@@ -171,25 +171,26 @@ export default function Login() {
 
                 <RightElement className="col-lg-6 d-flex align-items-center gradient-custom-2 rounded-end">
                   <div className="text-white px-3 py-4 p-md-5 mx-md-4">
-                    <h2 className="mb-4 fw-bold">Welcome to BabyCare</h2>
+                    <h2 className="mb-4 fw-bold">Chào mừng đến với BabyCare</h2>
                     <p className="mb-4">
-                      Join our community of parents and educators dedicated to
-                      providing the best care and education for children. Our
-                      platform offers comprehensive tools and resources to
-                      support early childhood development.
+                      Tham gia cộng đồng các bậc phụ huynh và giáo viên tận tâm
+                      trong việc mang lại sự chăm sóc và giáo dục tốt nhất cho
+                      trẻ nhỏ. Nền tảng của chúng tôi cung cấp các công cụ và
+                      tài nguyên toàn diện nhằm hỗ trợ sự phát triển toàn diện
+                      trong giai đoạn đầu đời của trẻ.
                     </p>
                     <div className="d-flex gap-3 mb-4">
                       <div>
                         <h4 className="fw-bold">1000+</h4>
-                        <p className="small mb-0">Happy Parents</p>
+                        <p className="small mb-0">Phụ huynh hài lòng</p>
                       </div>
                       <div>
                         <h4 className="fw-bold">500+</h4>
-                        <p className="small mb-0">Expert Teachers</p>
+                        <p className="small mb-0">Giáo viên chuyên môn</p>
                       </div>
                       <div>
                         <h4 className="fw-bold">100+</h4>
-                        <p className="small mb-0">Activities</p>
+                        <p className="small mb-0">Hoạt động</p>
                       </div>
                     </div>
                   </div>
